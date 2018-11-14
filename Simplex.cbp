@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Simplex" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Simplex" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Simplex" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Folga.h" />
+		<Unit filename="include/FuncaoObjetivo.h" />
+		<Unit filename="include/Instancia.h" />
+		<Unit filename="include/Problema.h" />
+		<Unit filename="include/Restricao.h" />
+		<Unit filename="include/Simbolo.h" />
+		<Unit filename="include/Simplex.h" />
+		<Unit filename="include/Variavel.h" />
+		<Unit filename="include/VariavelArtificial.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Folga.cpp" />
+		<Unit filename="src/FuncaoObjetivo.cpp" />
+		<Unit filename="src/Instancia.cpp" />
+		<Unit filename="src/Problema.cpp" />
+		<Unit filename="src/Restricao.cpp" />
+		<Unit filename="src/Simbolo.cpp" />
+		<Unit filename="src/Simplex.cpp" />
+		<Unit filename="src/Variavel.cpp" />
+		<Unit filename="src/VariavelArtificial.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
