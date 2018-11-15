@@ -1,6 +1,10 @@
 #include "Folga.h"
 #include <iostream>
+#include <iostream>
+#include <cstdlib>
 #include <string>
+#include <sstream>
+#include <vector>
 using namespace std;
 
 Folga::Folga()
@@ -18,13 +22,14 @@ double Folga::getValor()
     return valor;
 }
 
-void Folga::setNome(string nome)
+void Folga::setNome(string a)
 {
-    nome = nome;
+    nome = a;
+
 }
 
-void Folga::setValor(double valor)
+void Folga::setValor(double b)
 {
-    valor = valor;
+    valor = b;
 }
 

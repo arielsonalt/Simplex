@@ -6,6 +6,7 @@
 #include "../include/Variavel.h"
 #include "../include/VariavelArtificial.h"
 #include "../include/Problema.h"
+#include "../include/Simplex.h"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -165,6 +166,10 @@ void Instancia::ler()
 
 
     arquivo.close();
+
+
+
+    Simplex simplex(problema);
 
 
 }

@@ -17,26 +17,34 @@
 #define M 99999
 using namespace std;
 
-Simplex::Simplex(Problema & p) :
-    problema(p)
+Simplex::Simplex(Problema &p) : problema(p)
 {
-    if(classificar()){
+    if (classificar())
+    {
         preparar(classificar());
         simplexSimples();
-    }else{
+    }
+    else
+    {
         simplexBigM();
     }
 }
 bool Simplex::classificar()
 {
 
-    for(int i =0;i < problema.getRestricoes().size();i++){
-        if(problema.getRestricao(i).getSimbolo().getNome() == "="){
-                return 0;
-        }else if(problema.getRestricao(i).getSimbolo().getNome() == "=>"){
-                return 0;
-        }else if(problema.getTipo() == "Minimizar"){
-                return 0;
+    for (int i = 0; i < problema.getRestricoes().size(); i++)
+    {
+        if (problema.getRestricao(i).getSimbolo().getNome() == "=")
+        {
+            return 0;
+        }
+        else if (problema.getRestricao(i).getSimbolo().getNome() == "=>")
+        {
+            return 0;
+        }
+        else if (problema.getTipo() == "Minimizar")
+        {
+            return 0;
         }
     }
     return 1;
@@ -44,44 +52,54 @@ bool Simplex::classificar()
 
 void Simplex::simplexSimples()
 {
+    //numero de restrições +Z + bigM
+    int quantRestricoes = problema.getRestricoes().size();
+    string colunaEsq[quantRestricoes+2];
+    //numero de variaveis + numero de folgas + coluna resultado;
 
+    string linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()*2)+1];
 
-    int tamanhoLinhas = problema.getRestricoes().size()+1;
-    int tamanhoColunas = problema.getFuncaoObjetivoPronto().getVariaveis().size()
-    + problema.getRestricoes().size()+1;
+    double colunaResult[quantRestricoes+2];
+    int quantLinhaTabela = problema.getFuncaoObjetivoPronto().getVariaveis().size()*2;
+    double tabela[quantLinhaTabela][quantRestricoes+2];
 
-    double tabela[tamanhoLinhas][tamanhoColunas];
-
-    string nomeLinha[tamanhoLinhas];
-    string nomeColuna[tamanhoColunas];
-    for(int j = 0; j < nomeLinha.size(); j++){
-
+    for (int j = 0; j < quantRestricoes+2; j++)
+    {
+        if(j >= quantRestricoes){
+            if(j == quantRestricoes){
+                colunaEsq[j]="Z";
+            }else if(j == quantRestricoes+1){
+                colunaEsq[j]="BigM";
+            }
+        }else{
+            colunaEsq[j] = problema.getRestricao(j).getFolga().getNome();
+            cout<<problema.getRestricao(j).getFolga().getNome()<<endl;
+        }
+       // cout<<colunaEsq[j]<<endl;
     }
 }
 
 void Simplex::simplexBigM()
 {
-
 }
 
-void Simplex::preparar(int i)
+void Simplex::preparar(bool i)
 {
-    if(i){
-        for(int i=0; i<problema.getRestricoes().size(); i++){
+    if (i)
+    {
+
+        //Cria o nome das variaveis de folga no simplex simples
+        for (int i = 0; i < problema.getRestricoes().size(); i++)
+        {
             string nomeFolga = "f";
             stringstream ss;
-            ss << i;
-            string str = ss.str();
+            ss << i+1;
+            string str = nomeFolga;
+            str += ss.str();
             problema.getRestricao(i).getFolga().setNome(str);
-            problema.getRestricao(i).getFolga().setValor(1);
+            //cout<<problema.getRestricao(i).getFolga().getNome()<<endl;
+            cout<<problema.getRestricao(i).getFolga().getNome()<<endl;
         }
-    }else{
-
     }
+
 }
-
-
-
-
-
-

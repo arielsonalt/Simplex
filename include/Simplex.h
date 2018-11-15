@@ -22,7 +22,7 @@ class Simplex
     public:
         Simplex(Problema & p);
         bool classificar();
-        void preparar(int);
+        void preparar(bool);
         void simplexSimples();
         void simplexBigM();
         Problema & problema;
