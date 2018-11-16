@@ -51,7 +51,7 @@ void Instancia::ler()
 
     FuncaoObjetivo funcaoObjetivo;
 
-    Folga folga;
+
     string tipo;
     tipo = lista[1];
     problema.setTipo(tipo);

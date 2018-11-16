@@ -42,7 +42,7 @@ void Restricao::setVariaveis(Variavel a)
 
 void Restricao::setFolga(Folga a)
 {
-    folga = a;
+    folga=a;
 }
 
 void Restricao::setVariaveisArtificiais(VariavelArtificial a)

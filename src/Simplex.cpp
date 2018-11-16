@@ -19,6 +19,7 @@ using namespace std;
 
 Simplex::Simplex(Problema &p) : problema(p)
 {
+
     if (classificar())
     {
         preparar(classificar());
@@ -52,6 +53,7 @@ bool Simplex::classificar()
 
 void Simplex::simplexSimples()
 {
+
     //numero de restrições +Z + bigM
     int quantRestricoes = problema.getRestricoes().size();
     string colunaEsq[quantRestricoes+2];
@@ -73,7 +75,7 @@ void Simplex::simplexSimples()
             }
         }else{
             colunaEsq[j] = problema.getRestricao(j).getFolga().getNome();
-            cout<<problema.getRestricao(j).getFolga().getNome()<<endl;
+            //cout<<problema.getRestricao(j).getFolga().getNome()<<endl;
         }
        // cout<<colunaEsq[j]<<endl;
     }
@@ -91,15 +93,21 @@ void Simplex::preparar(bool i)
         //Cria o nome das variaveis de folga no simplex simples
         for (int i = 0; i < problema.getRestricoes().size(); i++)
         {
-            string nomeFolga = "f";
-            stringstream ss;
-            ss << i+1;
-            string str = nomeFolga;
-            str += ss.str();
-            problema.getRestricao(i).getFolga().setNome(str);
-            //cout<<problema.getRestricao(i).getFolga().getNome()<<endl;
-            cout<<problema.getRestricao(i).getFolga().getNome()<<endl;
+                Folga folgas;
+                string nomeFolga = "f";
+                stringstream ss;
+                ss << i+1;
+                string str = nomeFolga;
+                str += ss.str();
+                folgas.setNome(str);
+                folgas.setValor(0);
+
+                //problema.getRestricao(i).setFolga(folgas);
+
+                //string nome = problema.getRestricao(i).getFolga().getNome();
+                cout<<problema.getRestricao(i).getSimbolo().getNome()<<endl;
+                //cout<<restr.getFolga().getNome()<<endl;
+
         }
     }
-
 }
