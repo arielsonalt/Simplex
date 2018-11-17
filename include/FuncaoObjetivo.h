@@ -12,6 +12,7 @@ class FuncaoObjetivo
         vector <Variavel> variaveis;
     public:
         FuncaoObjetivo();
+        Variavel getVariavel(int);
         vector <Variavel> getVariaveis();
         void setVariaveis(Variavel);
 };

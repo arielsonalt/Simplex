@@ -166,19 +166,21 @@
 	<locale>
 	<iostream>
 
-1540846061 c:\users\ariel\dropbox\github\simplex\include\instancia.h
+1542381478 c:\users\ariel\dropbox\github\simplex\include\instancia.h
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
 	"../include/Folga.h"
 	"../include/Restricao.h"
 	"../include/Variavel.h"
 	"../include/VariavelArtificial.h"
+	"../include/Problema.h"
+	"../include/Simplex.h"
 	<iostream>
 	<cstdlib>
 	<string>
 	<vector>
 
-1540935000 c:\users\ariel\dropbox\github\simplex\include\funcaoobjetivo.h
+1542386291 c:\users\ariel\dropbox\github\simplex\include\funcaoobjetivo.h
 	"../include/Variavel.h"
 	<iostream>
 	<string>
@@ -196,7 +198,7 @@
 	<iostream>
 	<string>
 
-1542338800 c:\users\ariel\dropbox\github\simplex\include\restricao.h
+1542453958 c:\users\ariel\dropbox\github\simplex\include\restricao.h
 	"../include/Variavel.h"
 	"../include/Folga.h"
 	"../include/VariavelArtificial.h"
@@ -209,7 +211,7 @@
 	<iostream>
 	<string>
 
-1542318721 source:c:\users\ariel\dropbox\github\simplex\src\folga.cpp
+1542383290 source:c:\users\ariel\dropbox\github\simplex\src\folga.cpp
 	"Folga.h"
 	<iostream>
 	<iostream>
@@ -218,7 +220,7 @@
 	<sstream>
 	<vector>
 
-1540512243 source:c:\users\ariel\dropbox\github\simplex\src\funcaoobjetivo.cpp
+1542386357 source:c:\users\ariel\dropbox\github\simplex\src\funcaoobjetivo.cpp
 	"FuncaoObjetivo.h"
 	"../include/Variavel.h"
 	<iostream>
@@ -226,7 +228,7 @@
 	<string>
 	<vector>
 
-1542339803 source:c:\users\ariel\dropbox\github\simplex\src\instancia.cpp
+1542385447 source:c:\users\ariel\dropbox\github\simplex\src\instancia.cpp
 	"Instancia.h"
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
@@ -245,7 +247,7 @@
 	<locale>
 	<vector>
 
-1541010392 c:\users\ariel\dropbox\github\simplex\include\problema.h
+1542383766 c:\users\ariel\dropbox\github\simplex\include\problema.h
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
 	"../include/Folga.h"
@@ -257,7 +259,7 @@
 	<string>
 	<vector>
 
-1542341952 source:c:\users\ariel\dropbox\github\simplex\src\problema.cpp
+1542383864 source:c:\users\ariel\dropbox\github\simplex\src\problema.cpp
 	"Problema.h"
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
@@ -270,7 +272,7 @@
 	<string>
 	<vector>
 
-1542338800 source:c:\users\ariel\dropbox\github\simplex\src\restricao.cpp
+1542454074 source:c:\users\ariel\dropbox\github\simplex\src\restricao.cpp
 	"Restricao.h"
 	<iostream>
 	"../include/Variavel.h"
@@ -293,7 +295,7 @@
 	<iostream>
 	<string>
 
-1542335344 source:c:\users\ariel\dropbox\github\simplex\src\simplex.cpp
+1542455344 source:c:\users\ariel\dropbox\github\simplex\src\simplex.cpp
 	"Simplex.h"
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
@@ -311,7 +313,7 @@
 	<locale>
 	<vector>
 
-1542319113 c:\users\ariel\dropbox\github\simplex\include\simplex.h
+1542381326 c:\users\ariel\dropbox\github\simplex\include\simplex.h
 	"FuncaoObjetivo.h"
 	"Simbolo.h"
 	"Folga.h"

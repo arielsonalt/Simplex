@@ -23,9 +23,10 @@ class Restricao
         Folga getFolga();
         vector <VariavelArtificial> getVariaveisArtificiais();
         Simbolo getSimbolo();
+        Variavel* getVariavel(int);
         double getNumeroLimitante();
         void setVariaveis(Variavel);
-        void setFolga(Folga);
+        void setFolga(Folga&);
         void setVariaveisArtificiais(VariavelArtificial);
         void setSimbolo(Simbolo);
         void setNumeroLimitante(double);

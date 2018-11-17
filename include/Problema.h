@@ -21,7 +21,7 @@ class Problema
     public:
         Problema();
         vector <Restricao> getRestricoes();
-        Restricao getRestricao(int);
+        Restricao* getRestricao(int);
         FuncaoObjetivo getFuncaoObjetivoPronto();
         void setRestricoes(Restricao);
         void setFuncaoObjetivoPronto(FuncaoObjetivo);

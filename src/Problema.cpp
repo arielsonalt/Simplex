@@ -44,7 +44,9 @@ string Problema::getTipo()
 {
     return tipo;
 }
-Restricao Problema::getRestricao(int i)
+Restricao *Problema::getRestricao(int i)
 {
-    return restricoes[i];
+
+    return &restricoes[i];
+
 }

@@ -24,7 +24,7 @@ double Folga::getValor()
 
 void Folga::setNome(string a)
 {
-    nome = (string) a;
+    nome = a;
 
 }
 

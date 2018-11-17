@@ -19,5 +19,9 @@ void FuncaoObjetivo::setVariaveis(Variavel a)
 {
     variaveis.push_back(a);
 }
+Variavel FuncaoObjetivo::getVariavel(int i)
+{
+    return variaveis[i];
+}
 
 

@@ -20,12 +20,11 @@ using namespace std;
 class Simplex
 {
     public:
+        Problema & problema;
         Simplex(Problema & p);
-        bool classificar();
-        void preparar(bool);
         void simplexSimples();
         void simplexBigM();
-        Problema & problema;
+
 };
 
 #endif // SIMPLEX_H

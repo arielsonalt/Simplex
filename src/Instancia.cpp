@@ -47,7 +47,7 @@ void Instancia::ler()
         lista.push_back(linha);
     }
 
-    Problema problema;
+    //Problema problema;
 
     FuncaoObjetivo funcaoObjetivo;
 
@@ -169,7 +169,21 @@ void Instancia::ler()
 
 
 
-    Simplex simplex(problema);
+    if (classificar(problema))
+    {
+        preparar(classificar(problema));
+        Simplex simplex(problema);
+        simplex.simplexSimples();
+    }
+    else
+    {
+        Simplex simplex(problema);
+        simplex.simplexBigM();
+    }
+
+
+
+
 
 
 }
@@ -191,4 +205,53 @@ void Instancia::criarFuncaoObjetivo(string nomeString, string valorString,Funcao
 }
 
 
+bool Instancia::classificar(Problema &problema)
+{
+    for (int i = 0; i < problema.getRestricoes().size(); i++)
+    {
+        if (problema.getRestricao(i)->getSimbolo().getNome() == "=")
+        {
+            return 0;
+        }
+        else if (problema.getRestricao(i)->getSimbolo().getNome() == "=>")
+        {
+            return 0;
+        }
+        else if (problema.getTipo() == "Minimizar")
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void Instancia::preparar(bool i)
+{
+    if (i)
+    {
+
+        //Cria o nome das variaveis de folga no simplex simples
+        int num = problema.getRestricoes().size();
+        for (int i = 0; i < num; i++)
+        {
+                Folga folga;
+                string nomeFolga = "f";
+                stringstream ss;
+                ss << i+1;
+                string str = nomeFolga;
+                str += ss.str();
+                folga.setNome(str);
+                int num = 1;
+                folga.setValor(num);
+
+                problema.getRestricao(i)->setFolga(folga);
+
+                //string nome = problema.getRestricao(i).getFolga().getNome();
+                //cout<<problema.getRestricao(i)->getFolga().getNome()<<"certo"<<endl;
+                //cout<<problema.getRestricao(i)->getFolga().getValor()<<"certo"<<endl;
+                //cout<<restr.getFolga().getNome()<<endl;
+
+        }
+    }
+}
 

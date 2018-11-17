@@ -40,9 +40,9 @@ void Restricao::setVariaveis(Variavel a)
     variaveis.push_back(a);
 }
 
-void Restricao::setFolga(Folga a)
+void Restricao::setFolga(Folga &u)
 {
-    folga=a;
+    folga = u;
 }
 
 void Restricao::setVariaveisArtificiais(VariavelArtificial a)
@@ -58,5 +58,9 @@ void Restricao::setSimbolo(Simbolo a)
 void Restricao::setNumeroLimitante(double a)
 {
     numeroLimitante = a;
+}
+Variavel* Restricao::getVariavel(int i)
+{
+    return &variaveis[i];
 }
 
