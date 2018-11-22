@@ -1,166 +1,4 @@
 # depslib dependency file v1.0
-1540314684 source:c:\users\ariel\documents\c++ aplications\simplex\main.cpp
-	"../include/Instancia.h"
-	<locale>
-	<iostream>
-
-1540842461 c:\users\ariel\documents\c++ aplications\simplex\include\instancia.h
-	"../include/FuncaoObjetivo.h"
-	"../include/Simbolo.h"
-	"../include/Folga.h"
-	"../include/Restricao.h"
-	"../include/Variavel.h"
-	"../include/VariavelArtificial.h"
-	<iostream>
-	<cstdlib>
-	<string>
-	<vector>
-
-1540940654 source:c:\users\ariel\documents\c++ aplications\simplex\src\instancia.cpp
-	"Instancia.h"
-	"../include/FuncaoObjetivo.h"
-	"../include/Simbolo.h"
-	"../include/Folga.h"
-	"../include/Restricao.h"
-	"../include/Variavel.h"
-	"../include/VariavelArtificial.h"
-	"../include/Problema.h"
-	<iostream>
-	<fstream>
-	<cstdlib>
-	<stdlib.h>
-	<sstream>
-	<string>
-	<locale>
-	<vector>
-
-1540508643 source:c:\users\ariel\documents\c++ aplications\simplex\src\funcaoobjetivo.cpp
-	"FuncaoObjetivo.h"
-	"../include/Variavel.h"
-	<iostream>
-	<cstdlib>
-	<string>
-	<vector>
-
-1540931400 c:\users\ariel\documents\c++ aplications\simplex\include\funcaoobjetivo.h
-	"../include/Variavel.h"
-	<iostream>
-	<string>
-	<vector>
-
-1541006776 source:c:\users\ariel\documents\c++ aplications\simplex\src\problema.cpp
-	"Problema.h"
-	"../include/FuncaoObjetivo.h"
-	"../include/Simbolo.h"
-	"../include/Folga.h"
-	"../include/Restricao.h"
-	"../include/Variavel.h"
-	"../include/VariavelArtificial.h"
-	<iostream>
-	<cstdlib>
-	<string>
-	<vector>
-
-1541006792 c:\users\ariel\documents\c++ aplications\simplex\include\problema.h
-	"../include/FuncaoObjetivo.h"
-	"../include/Simbolo.h"
-	"../include/Folga.h"
-	"../include/Restricao.h"
-	"../include/Variavel.h"
-	"../include/VariavelArtificial.h"
-	<iostream>
-	<cstdlib>
-	<string>
-	<vector>
-
-1540939880 source:c:\users\ariel\documents\c++ aplications\simplex\src\simplex.cpp
-	"Simplex.h"
-	"../include/FuncaoObjetivo.h"
-	"../include/Simbolo.h"
-	"../include/Folga.h"
-	"../include/Restricao.h"
-	"../include/Variavel.h"
-	"../include/VariavelArtificial.h"
-	"../include/Problema.h"
-	<iostream>
-	<fstream>
-	<cstdlib>
-	<stdlib.h>
-	<sstream>
-	<string>
-	<locale>
-	<vector>
-
-1540842304 c:\users\ariel\documents\c++ aplications\simplex\include\simplex.h
-	"FuncaoObjetivo.h"
-	"Simbolo.h"
-	"Folga.h"
-	"Restricao.h"
-	"Variavel.h"
-	"VariavelArtificial.h"
-	"../include/Problema.h"
-	<iostream>
-	<fstream>
-	<cstdlib>
-	<stdlib.h>
-	<sstream>
-	<string>
-	<locale>
-	<vector>
-
-1540401763 source:c:\users\ariel\documents\c++ aplications\simplex\src\folga.cpp
-	"Folga.h"
-	<iostream>
-	<string>
-
-1540401413 c:\users\ariel\documents\c++ aplications\simplex\include\folga.h
-	<iostream>
-	<string>
-
-1540401661 c:\users\ariel\documents\c++ aplications\simplex\include\variavel.h
-	<iostream>
-	<string>
-
-1540941526 source:c:\users\ariel\documents\c++ aplications\simplex\src\restricao.cpp
-	"Restricao.h"
-	<iostream>
-	"../include/Variavel.h"
-	"../include/Folga.h"
-	<string>
-	<vector>
-
-1540941464 c:\users\ariel\documents\c++ aplications\simplex\include\restricao.h
-	"../include/Variavel.h"
-	"../include/Folga.h"
-	"../include/VariavelArtificial.h"
-	"../include/Simbolo.h"
-	<iostream>
-	<string>
-	<vector>
-
-1540504722 c:\users\ariel\documents\c++ aplications\simplex\include\variavelartificial.h
-	<iostream>
-	<string>
-
-1540402895 c:\users\ariel\documents\c++ aplications\simplex\include\simbolo.h
-	<iostream>
-	<string>
-
-1540708223 source:c:\users\ariel\documents\c++ aplications\simplex\src\simbolo.cpp
-	"Simbolo.h"
-	<iostream>
-	<string>
-
-1540704352 source:c:\users\ariel\documents\c++ aplications\simplex\src\variavel.cpp
-	"Variavel.h"
-	<iostream>
-	<string>
-
-1540708289 source:c:\users\ariel\documents\c++ aplications\simplex\src\variavelartificial.cpp
-	"VariavelArtificial.h"
-	<iostream>
-	<string>
-
 1540318284 source:c:\users\ariel\dropbox\github\simplex\main.cpp
 	"../include/Instancia.h"
 	<locale>
@@ -211,6 +49,35 @@
 	<iostream>
 	<string>
 
+1542383766 c:\users\ariel\dropbox\github\simplex\include\problema.h
+	"../include/FuncaoObjetivo.h"
+	"../include/Simbolo.h"
+	"../include/Folga.h"
+	"../include/Restricao.h"
+	"../include/Variavel.h"
+	"../include/VariavelArtificial.h"
+	<iostream>
+	<cstdlib>
+	<string>
+	<vector>
+
+1542381326 c:\users\ariel\dropbox\github\simplex\include\simplex.h
+	"FuncaoObjetivo.h"
+	"Simbolo.h"
+	"Folga.h"
+	"Restricao.h"
+	"Variavel.h"
+	"VariavelArtificial.h"
+	"../include/Problema.h"
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<stdlib.h>
+	<sstream>
+	<string>
+	<locale>
+	<vector>
+
 1542383290 source:c:\users\ariel\dropbox\github\simplex\src\folga.cpp
 	"Folga.h"
 	<iostream>
@@ -228,7 +95,7 @@
 	<string>
 	<vector>
 
-1542385447 source:c:\users\ariel\dropbox\github\simplex\src\instancia.cpp
+1542821433 source:c:\users\ariel\dropbox\github\simplex\src\instancia.cpp
 	"Instancia.h"
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
@@ -245,18 +112,6 @@
 	<sstream>
 	<string>
 	<locale>
-	<vector>
-
-1542383766 c:\users\ariel\dropbox\github\simplex\include\problema.h
-	"../include/FuncaoObjetivo.h"
-	"../include/Simbolo.h"
-	"../include/Folga.h"
-	"../include/Restricao.h"
-	"../include/Variavel.h"
-	"../include/VariavelArtificial.h"
-	<iostream>
-	<cstdlib>
-	<string>
 	<vector>
 
 1542383864 source:c:\users\ariel\dropbox\github\simplex\src\problema.cpp
@@ -295,7 +150,7 @@
 	<iostream>
 	<string>
 
-1542455344 source:c:\users\ariel\dropbox\github\simplex\src\simplex.cpp
+1542821359 source:c:\users\ariel\dropbox\github\simplex\src\simplex.cpp
 	"Simplex.h"
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
@@ -306,23 +161,7 @@
 	"../include/Problema.h"
 	<iostream>
 	<fstream>
-	<cstdlib>
-	<stdlib.h>
-	<sstream>
-	<string>
-	<locale>
-	<vector>
-
-1542381326 c:\users\ariel\dropbox\github\simplex\include\simplex.h
-	"FuncaoObjetivo.h"
-	"Simbolo.h"
-	"Folga.h"
-	"Restricao.h"
-	"Variavel.h"
-	"VariavelArtificial.h"
-	"../include/Problema.h"
-	<iostream>
-	<fstream>
+	<cstddef>
 	<cstdlib>
 	<stdlib.h>
 	<sstream>

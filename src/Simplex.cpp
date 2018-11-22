@@ -34,58 +34,48 @@ void Simplex::simplexSimples()
     string linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()*2)+1];
 
     double colunaResult[quantRestricoes+1];
-    int quantLinhaTabela = problema.getFuncaoObjetivoPronto().getVariaveis().size();
+    int quantLinhaTabela = problema.getFuncaoObjetivoPronto().getVariaveis().size()+1;
     double tabela[quantLinhaTabela][quantRestricoes*2];
 
     for (int j = 0; j < quantRestricoes+1; j++)
-    {
-        if(j >= quantRestricoes){
-            if(j == quantRestricoes){
-                colunaEsq[j]="Z";
-            }else if(j == quantRestricoes+1){
-                //colunaEsq[j]="BigM";
-            }
-        }else{
-            colunaEsq[j] = problema.getRestricao(j)->getFolga().getNome();
-            //cout<<problema.getRestricao(j)->getFolga().getNome()<<endl;
-        }
-        //cout<<colunaEsq[j]<<endl;
-    }
-    int controle=0;
-    for(int k = 0; k < problema.getFuncaoObjetivoPronto().getVariaveis().size(); k++){
-        linhaTop[k]= problema.getFuncaoObjetivoPronto().getVariavel(k).getNome();
-        //cout<<linhaTop[k];
-        controle++;
-    }
-    for(int l=0; l < problema.getFuncaoObjetivoPronto().getVariaveis().size(); l++){
-       linhaTop[controle] = problema.getRestricao(l)->getFolga().getNome();
-       //cout<<linhaTop[controle];
-
-       controle++;
-    }
-    //linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()*2)+1]="B";
-    //cout<<"oi"<<endl;
-
-    linhaTop[problema.getFuncaoObjetivoPronto().getVariaveis().size()*2]="B";
-    for(int i=0; i< (problema.getFuncaoObjetivoPronto().getVariaveis().size()*2)+1;i++){
-
-        //cout<<linhaTop[i]<<endl;
-    }
-
-   for(int l = 0; l<quantLinhaTabela; l++){
-        for(int c = 0; c<quantRestricoes*2; c++){
-            while(c < problema.getRestricao(l)->getVariaveis().size()){
-                if(problema.getRestricao(l)->getVariavel(c)!= NULL){
-                   tabela[l][c] = problema.getRestricao(l)->getVariavel(c)->getValor();
-                   cout<<tabela[l][c]<<".."<<l<<c<<endl;
+        {
+            if(j >= quantRestricoes){
+                if(j == quantRestricoes){
+                    colunaEsq[j]="Z";
                 }
-                break;
+            }else{
+                colunaEsq[j] = problema.getRestricao(j)->getFolga().getNome();
+                //cout<<problema.getRestricao(j)->getFolga().getNome()<<endl;
             }
-            while(){
-
-            }
+            //cout<<colunaEsq[j]<<endl;
         }
-   }
+
+    linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()*2)]="B";
+    for(int k=0; k< sizeof(linhaTop)/sizeof(int);k++){
+
+    }
+
+    for(unsigned int i = 0; i<quantLinhaTabela; i++){
+        for(unsigned int j = 0; j<quantRestricoes*2;j++){
+            tabela[i][j] = 0;
+            cout<<tabela[i][j]<<" ";
+        }
+        cout<<""<<endl;
+    }
+    cout<<sizeof(linhaTop)/sizeof(int)<<endl;
+
+    for(unsigned int i = 0; i<quantLinhaTabela; i++){
+        for(unsigned int j = 0; j<quantRestricoes*2;j++){
+
+        }
+
+    }
+    for(unsigned int i = 0; i<quantLinhaTabela; i++){
+        for(unsigned int j = 0; j<quantRestricoes*2;j++){
+            cout<<tabela[i][j]<<" ";
+        }
+        cout<<""<<endl;
+    }
 
 }
 
