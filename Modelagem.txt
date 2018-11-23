@@ -6,5 +6,5 @@ Maximizar
 Conjunto de restrições:
 
 3x     <= -4020
-    -2y <= -120
--2x +3y <= -2
+    2y <= -120
+2x +3y <= -2
