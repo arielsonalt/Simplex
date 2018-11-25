@@ -22,8 +22,10 @@ class Simplex
     public:
         Problema & problema;
         Simplex(Problema & p);
+        void fim(double**,int);
         void simplexSimples();
         void simplexBigM();
+        //
 
 };
 
