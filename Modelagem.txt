@@ -7,4 +7,4 @@ Conjunto de restrições:
 
 x      <= 4
     2y <= 12
-3x +2y <= 21
+3x +2y <= 18
