@@ -209,16 +209,9 @@ bool Instancia::classificar(Problema &problema)
 {
     for (int i = 0; i < problema.getRestricoes().size(); i++)
     {
-        if (problema.getRestricao(i)->getSimbolo().getNome() == "=")
+        if (problema.getTipo() == "Minimizar" || problema.getTipo() == "minimizar" )
         {
-            return 0;
-        }
-        else if (problema.getRestricao(i)->getSimbolo().getNome() == "=>")
-        {
-            return 0;
-        }
-        else if (problema.getTipo() == "Minimizar")
-        {
+            cout<<"Resultado = 0"<<endl;
             return 0;
         }
     }

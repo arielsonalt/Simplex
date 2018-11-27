@@ -95,7 +95,8 @@ void Simplex::simplexSimples()
 
 cout<<problema.getFuncaoObjetivoPronto().getVariavel(0).getValor()<<endl;
 cout<<problema.getFuncaoObjetivoPronto().getVariavel(1).getValor()<<endl;
-    for(unsigned int i = 0; i<quantLinhaTabela; i++)
+cout<<problema.getFuncaoObjetivoPronto().getVariaveis().size()<<endl;
+    for(unsigned int i = 0; i<quantLinhaTabela-1; i++)
     {
 
         for(unsigned int j = 0; j<colunaTabela; j++)
@@ -143,33 +144,34 @@ cout<<problema.getFuncaoObjetivoPronto().getVariavel(1).getValor()<<endl;
             }
 
         }
+    }
 
-        if(i == quantLinhaTabela-1)
-        {
+
+
 
             for(int v=0 ; v<colunaTabela; v++)
             {
 
-                int encontrou =0;
+                int encontrou=0;
                 for(int k=0; k < problema.getFuncaoObjetivoPronto().getVariaveis().size(); k++)
                 {
+
 
                     if(problema.getFuncaoObjetivoPronto().getVariavel(k).getNome() ==  linhaTop[v])
                     {
                         //cout<<problema.getFuncaoObjetivoPronto().getVariavel(k).getValor();
 
-                        tabela[i][v] = problema.getFuncaoObjetivoPronto().getVariavel(k).getValor();
+                        tabela[quantLinhaTabela-1][v] = problema.getFuncaoObjetivoPronto().getVariavel(k).getValor();
                         encontrou=1;
                     }
 
                 }
                 if(encontrou == 0)
                 {
-                    tabela[i][v] = 0;
+                    tabela[quantLinhaTabela-1][v] = 0;
                 }
             }
-        }
-    }
+
 
     for(int t=0; t<quantRestricoes+1; t++)
     {

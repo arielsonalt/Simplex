@@ -1,5 +1,5 @@
 Função Objetivo: Maximizar ou Minimizar
-Maximizar
+Minimizar
 
 +3x +2y
 
