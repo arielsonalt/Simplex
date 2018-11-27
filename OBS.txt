@@ -1,71 +1,9 @@
-for (int j = 0; j < quantRestricoes+1; j++)
-    {
-        if(j >= quantRestricoes){
-            if(j == quantRestricoes){
-                colunaEsq[j]="Z";
-            }else if(j == quantRestricoes+1){
-                //colunaEsq[j]="BigM";
-            }
-        }else{
-            colunaEsq[j] = problema.getRestricao(j)->getFolga().getNome();
-            //cout<<problema.getRestricao(j)->getFolga().getNome()<<endl;
-        }
-        //cout<<colunaEsq[j]<<endl;
-    }
-    int controle=0;
-    for(int k = 0; k < problema.getFuncaoObjetivoPronto().getVariaveis().size(); k++){
-        linhaTop[k]= problema.getFuncaoObjetivoPronto().getVariavel(k).getNome();
-        //cout<<linhaTop[k];
-        controle++;
-    }
-    for(int l=0; l < problema.getFuncaoObjetivoPronto().getVariaveis().size(); l++){
-       linhaTop[controle] = problema.getRestricao(l)->getFolga().getNome();
-       //cout<<linhaTop[controle];
+Função Objetivo: Maximizar ou Minimizar
+Maximizar
 
-       controle++;
-    }
-    //linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()*2)+1]="B";
-    //cout<<"oi"<<endl;
++520x +450y
 
-    linhaTop[problema.getFuncaoObjetivoPronto().getVariaveis().size()*2]="B";
-    for(int i=0; i< (problema.getFuncaoObjetivoPronto().getVariaveis().size()*2)+1;i++){
+Conjunto de restrições:
 
-        //cout<<linhaTop[i]<<endl;
-    }
-
-   for(int l = 0; l<quantLinhaTabela; l++){
-        for(int c = 0; c<quantRestricoes*2; c++){
-            while(c < problema.getRestricao(l)->getVariaveis().size()){
-                if(problema.getRestricao(l)->getVariavel(c)!= NULL){
-                   tabela[l][c] = problema.getRestricao(l)->getVariavel(c)->getValor();
-                   cout<<tabela[l][c]<<".."<<l<<c<<endl;
-                }
-                break;
-            }
-            if(l == quantLinhaTabela-1){
-                for(int u = 0; u<quantRestricoes*2;u++){
-                    if(problema.getFuncaoObjetivoPronto().getVariavel(u).getValor()!= NULL){
-                       tabela[l][u] = problema.getFuncaoObjetivoPronto().getVariavel(u).getValor();
-                       cout<<tabela[l][u]<<".."<<l<<c<<endl;
-                    }else{
-                        tabela[l][u] = 0;
-                    }
-                }
-            }
-            if(c >= problema.getRestricao(l)->getVariaveis().size()){
-                if(problema.getRestricao(l)->getFolga().getNome() == linhaTop[c]){
-                    tabela[l][c] = problema.getRestricao(l)->getFolga().getValor();
-                }else{
-                    tabela[l][c] = 0;
-                }
-
-            }
-        }
-
-   }
-
-   for(int l =0; l< quantLinhaTabela;l++){
-        for(int k =0; k < quantRestricoes*2; k++){
-            cout<<tabela[l][k]<<endl;
-        }
-   }
++40x +25y <= 400
++24x +30y <= 360

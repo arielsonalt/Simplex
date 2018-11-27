@@ -16,7 +16,7 @@
 #include <locale>
 #include <vector>
 #define M 99999
-#define MODULO(x) ((x)>=0?(x):-(x))
+#define MODULO(x) ((x)>=0 ? (x) : -(x))
 using namespace std;
 
 Simplex::Simplex(Problema &p) : problema(p)
@@ -26,6 +26,7 @@ Simplex::Simplex(Problema &p) : problema(p)
 
 void Simplex::simplexSimples()
 {
+
 
     //numero de restrições +Z + bigM
     int quantRestricoes = problema.getRestricoes().size();
@@ -81,41 +82,47 @@ void Simplex::simplexSimples()
 
 
 
-    for(unsigned int i = 0; i<quantLinhaTabela-1; i++)
-    {
-        for(unsigned int j = 0; j<colunaTabela; j++)
-        {
-            tabela[i][j] = 0;
-            //cout<<tabela[i][j]<<" ";
-        }
-        //cout<<""<<endl;
-    }
-    //cout<<sizeof(linhaTop)/sizeof(int)<<endl;
-
     for(unsigned int i = 0; i<quantLinhaTabela; i++)
     {
         for(unsigned int j = 0; j<colunaTabela; j++)
         {
-            int encontrou =0;
+            tabela[i][j] = 0;
+            //<<tabela[i][j]<<" ";
+        }
+        //cout<<""<<endl;
+    }
+
+
+cout<<problema.getFuncaoObjetivoPronto().getVariavel(0).getValor()<<endl;
+cout<<problema.getFuncaoObjetivoPronto().getVariavel(1).getValor()<<endl;
+    for(unsigned int i = 0; i<quantLinhaTabela; i++)
+    {
+
+        for(unsigned int j = 0; j<colunaTabela; j++)
+        {
+
+            int encontrou = 0;
             if(j<problema.getRestricoes().size())
             {
-
                 for(int k=0; k < problema.getRestricao(i)->getVariaveis().size(); k++)
                 {
                     if(problema.getRestricao(i)->getVariavel(k)->getNome() ==  linhaTop[j])
                     {
-                        //cout<<problema.getRestricao(i)->getVariavel(k)->getValor();
+                       // cout<<problema.getRestricao(i)->getVariavel(k)->getValor()<<endl;
 
                         tabela[i][j] = problema.getRestricao(i)->getVariavel(k)->getValor();
                         encontrou=1;
                     }
 
                 }
+
                 if(encontrou == 0)
                 {
                     tabela[i][j] = 0;
+
                 }
             }
+
             if( i != quantLinhaTabela-1)
             {
 
@@ -127,13 +134,16 @@ void Simplex::simplexSimples()
                     //cout<<tabela[i][j]<<endl;
 
                 }
+
                 if(encontrou == 0)
                 {
                     tabela[i][j] = 0;
 
                 }
             }
+
         }
+
         if(i == quantLinhaTabela-1)
         {
 
@@ -199,34 +209,31 @@ void Simplex::simplexSimples()
     //*********************************************************************************************
     //*********************************************************************************************
     //Interações
-    cout<<"oi ***********"<<endl;
-    int sair,cont=0;
+    int cont=0;
         int colunaPivo,menorElementoLinha=0;
         double resultadoDivisao;
-for(int q=0;q<4;q++){
+
+while(cont != colunaTabela){
         cont=0;
+
         // achar coluna pivo
 
-        for(int y =0; y<colunaTabela; y++)
+        for(int y = 0; y<colunaTabela; y++)
         {
-            if(MODULO(tabela[quantLinhaTabela-1][y]) < 0){
-                if(MODULO(tabela[quantLinhaTabela-1][y])>= menorElementoLinha)
-                {
-                    menorElementoLinha = MODULO(tabela[quantLinhaTabela-1][y]);
-                    colunaPivo = y;
-                    //cout<<colunaPivo;
-                }
-            }else{
-                if(tabela[quantLinhaTabela-1][y] <= menorElementoLinha)
+            if(y == 0){
+                menorElementoLinha = tabela[quantLinhaTabela-1][y];
+                colunaPivo = y;
+            }
+
+                if(tabela[quantLinhaTabela-1][y]<= menorElementoLinha)
                 {
                     menorElementoLinha = tabela[quantLinhaTabela-1][y];
                     colunaPivo = y;
                     //cout<<colunaPivo;
                 }
-            }
 
         }
-       cout<<colunaPivo<<"colunaPivo"<<endl;
+       //cout<<colunaPivo<<"colunaPivo"<<endl;
 
         //achar linha Pivo
         int linhaPivo;
@@ -237,18 +244,18 @@ for(int q=0;q<4;q++){
                 resultadoDivisao = colunaResult[y]/tabela[y][colunaPivo];
 
                 linhaPivo = y;
-                cout<<resultadoDivisao<<"divisão"<<endl;
+                //cout<<resultadoDivisao<<"divisão"<<endl;
             }
 
             if((colunaResult[y]/tabela[y][colunaPivo]) < resultadoDivisao )
             {
                 resultadoDivisao = colunaResult[y]/tabela[y][colunaPivo];
-                cout<<resultadoDivisao<<"divisão"<<endl;
+                //cout<<resultadoDivisao<<"divisão"<<endl;
                 linhaPivo = y;
             }
         }
 
-        cout<<linhaPivo<<endl;
+        //cout<<linhaPivo<<endl;
         colunaEsq[linhaPivo] = linhaTop[colunaPivo];
         double divisor = tabela[linhaPivo][colunaPivo];
         for(int j=0; j < colunaTabela; j++)
@@ -279,17 +286,13 @@ for(int q=0;q<4;q++){
         }
 
         // Verificações;
-        for(int d=0; d<colunaTabela ; d++)
+        for(int d=0; d < colunaTabela ; d++)
         {
-            if(tabela[quantLinhaTabela][d] == 0)
+            if(tabela[quantLinhaTabela-1][d] >= 0)
             {
                 cont++;
             }
 
-        }
-        if(cont == colunaTabela)
-        {
-            sair = 1;
         }
 }
 
