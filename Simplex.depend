@@ -95,7 +95,7 @@
 	<string>
 	<vector>
 
-1543361552 source:c:\users\ariel\dropbox\github\simplex\src\instancia.cpp
+1543361674 source:c:\users\ariel\dropbox\github\simplex\src\instancia.cpp
 	"Instancia.h"
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"
@@ -150,7 +150,7 @@
 	<iostream>
 	<string>
 
-1543361348 source:c:\users\ariel\dropbox\github\simplex\src\simplex.cpp
+1543411556 source:c:\users\ariel\dropbox\github\simplex\src\simplex.cpp
 	"Simplex.h"
 	"../include/FuncaoObjetivo.h"
 	"../include/Simbolo.h"

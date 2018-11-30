@@ -7,3 +7,47 @@ Conjunto de restrições:
 
 +40x +25y <= 400
 +24x +30y <= 360
+
+
+
+
+Função Objetivo: Maximizar ou Minimizar
+Maximizar
+
++3x +2y
+
+Conjunto de restrições:
+
++x      <= 4
+    +2y <= 12
++3x +2y <= 18
+
+
+
+
+Função Objetivo: Maximizar ou Minimizar
+Maximizar
+
++2x +3y
+
+Conjunto de restrições:
+
++x +3y <= 10
++2x +y <= 8
++3x +4y <= 12
++3x +y <= 9
+
+
+
+degenerecencia
+Função Objetivo: Maximizar ou Minimizar
+Maximizar
+
++3x +9y
+
+Conjunto de restrições:
+
++x +4y <= 8
++x +2y <= 4
+
+

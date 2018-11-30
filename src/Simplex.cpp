@@ -33,7 +33,7 @@ void Simplex::simplexSimples()
     string colunaEsq[quantRestricoes+1];
 
     //numero de variaveis + numero de folgas + coluna resultado;
-    string linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()+quantRestricoes)+1];
+    string linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()+quantRestricoes)];
 
     double colunaResult[quantRestricoes+1];
     int quantLinhaTabela = quantRestricoes+1;
@@ -57,7 +57,7 @@ void Simplex::simplexSimples()
         //cout<<colunaEsq[j]<<endl;
     }
 
-    linhaTop[(problema.getFuncaoObjetivoPronto().getVariaveis().size()+ quantRestricoes)]="B";
+
 
     int l=0;
     for(int k=0; k < problema.getFuncaoObjetivoPronto().getVariaveis().size(); k++)
@@ -92,10 +92,6 @@ void Simplex::simplexSimples()
         //cout<<""<<endl;
     }
 
-
-cout<<problema.getFuncaoObjetivoPronto().getVariavel(0).getValor()<<endl;
-cout<<problema.getFuncaoObjetivoPronto().getVariavel(1).getValor()<<endl;
-cout<<problema.getFuncaoObjetivoPronto().getVariaveis().size()<<endl;
     for(unsigned int i = 0; i<quantLinhaTabela-1; i++)
     {
 
@@ -103,13 +99,14 @@ cout<<problema.getFuncaoObjetivoPronto().getVariaveis().size()<<endl;
         {
 
             int encontrou = 0;
-            if(j<problema.getRestricoes().size())
+            if(j<problema.getFuncaoObjetivoPronto().getVariaveis().size())
             {
                 for(int k=0; k < problema.getRestricao(i)->getVariaveis().size(); k++)
                 {
                     if(problema.getRestricao(i)->getVariavel(k)->getNome() ==  linhaTop[j])
                     {
-                       // cout<<problema.getRestricao(i)->getVariavel(k)->getValor()<<endl;
+                        cout<<problema.getRestricao(i)->getVariavel(k)->getNome()<<endl;
+                        cout<<problema.getRestricao(i)->getVariavel(k)->getValor()<<endl;
 
                         tabela[i][j] = problema.getRestricao(i)->getVariavel(k)->getValor();
                         encontrou=1;
@@ -130,6 +127,7 @@ cout<<problema.getFuncaoObjetivoPronto().getVariaveis().size()<<endl;
                 if(problema.getRestricao(i)->getFolga().getNome() == linhaTop[j])
                 {
                     encontrou = 1;
+
                     tabela[i][j] = problema.getRestricao(i)->getFolga().getValor();
 
                     //cout<<tabela[i][j]<<endl;
@@ -149,28 +147,28 @@ cout<<problema.getFuncaoObjetivoPronto().getVariaveis().size()<<endl;
 
 
 
-            for(int v=0 ; v<colunaTabela; v++)
+    for(int v=0 ; v<colunaTabela; v++)
+    {
+
+        int encontrou=0;
+        for(int k=0; k < problema.getFuncaoObjetivoPronto().getVariaveis().size(); k++)
+        {
+
+
+            if(problema.getFuncaoObjetivoPronto().getVariavel(k).getNome() ==  linhaTop[v])
             {
+                //cout<<problema.getFuncaoObjetivoPronto().getVariavel(k).getValor();
 
-                int encontrou=0;
-                for(int k=0; k < problema.getFuncaoObjetivoPronto().getVariaveis().size(); k++)
-                {
-
-
-                    if(problema.getFuncaoObjetivoPronto().getVariavel(k).getNome() ==  linhaTop[v])
-                    {
-                        //cout<<problema.getFuncaoObjetivoPronto().getVariavel(k).getValor();
-
-                        tabela[quantLinhaTabela-1][v] = problema.getFuncaoObjetivoPronto().getVariavel(k).getValor();
-                        encontrou=1;
-                    }
-
-                }
-                if(encontrou == 0)
-                {
-                    tabela[quantLinhaTabela-1][v] = 0;
-                }
+                tabela[quantLinhaTabela-1][v] = problema.getFuncaoObjetivoPronto().getVariavel(k).getValor();
+                encontrou=1;
             }
+
+        }
+        if(encontrou == 0)
+        {
+            tabela[quantLinhaTabela-1][v] = 0;
+        }
+    }
 
 
     for(int t=0; t<quantRestricoes+1; t++)
@@ -212,30 +210,32 @@ cout<<problema.getFuncaoObjetivoPronto().getVariaveis().size()<<endl;
     //*********************************************************************************************
     //Interações
     int cont=0;
-        int colunaPivo,menorElementoLinha=0;
-        double resultadoDivisao;
+    int colunaPivo,menorElementoLinha=0;
+    double resultadoDivisao;
 
-while(cont != colunaTabela){
+    while(cont != colunaTabela)
+    {
         cont=0;
 
         // achar coluna pivo
 
         for(int y = 0; y<colunaTabela; y++)
         {
-            if(y == 0){
+            if(y == 0)
+            {
                 menorElementoLinha = tabela[quantLinhaTabela-1][y];
                 colunaPivo = y;
             }
 
-                if(tabela[quantLinhaTabela-1][y]<= menorElementoLinha)
-                {
-                    menorElementoLinha = tabela[quantLinhaTabela-1][y];
-                    colunaPivo = y;
-                    //cout<<colunaPivo;
-                }
+            if(tabela[quantLinhaTabela-1][y]<= menorElementoLinha)
+            {
+                menorElementoLinha = tabela[quantLinhaTabela-1][y];
+                colunaPivo = y;
+                //cout<<colunaPivo<<"colunaPivo";
+            }
 
         }
-       //cout<<colunaPivo<<"colunaPivo"<<endl;
+        //cout<<colunaPivo<<"colunaPivo"<<endl;
 
         //achar linha Pivo
         int linhaPivo;
@@ -249,7 +249,7 @@ while(cont != colunaTabela){
                 //cout<<resultadoDivisao<<"divisão"<<endl;
             }
 
-            if((colunaResult[y]/tabela[y][colunaPivo]) < resultadoDivisao )
+            if((colunaResult[y]/tabela[y][colunaPivo]) <= resultadoDivisao && (colunaResult[y]/tabela[y][colunaPivo]) >= 0)
             {
                 resultadoDivisao = colunaResult[y]/tabela[y][colunaPivo];
                 //cout<<resultadoDivisao<<"divisão"<<endl;
@@ -265,7 +265,7 @@ while(cont != colunaTabela){
             tabela[linhaPivo][j] = tabela[linhaPivo][j]/divisor;
 
         }
-         colunaResult[linhaPivo] = colunaResult[linhaPivo]/divisor;
+        colunaResult[linhaPivo] = colunaResult[linhaPivo]/divisor;
         //Eliminar a nova variável básica das outras equações
 
         for(unsigned int i = 0; i<quantLinhaTabela; i++)
@@ -296,16 +296,25 @@ while(cont != colunaTabela){
             }
 
         }
-}
-
-    for(unsigned int i = 0; i<quantLinhaTabela; i++)
-    {
-        for(unsigned int j = 0; j<colunaTabela; j++)
+        for(unsigned int i = 0; i<quantLinhaTabela; i++)
         {
-            cout<<tabela[i][j]<<" ";
+            for(unsigned int j = 0; j<colunaTabela; j++)
+            {
+                cout<<tabela[i][j]<<" ";
+            }
+            cout<<""<<endl;
         }
-        cout<<""<<endl;
     }
+    for(unsigned int i = 0; i<quantLinhaTabela; i++)
+        {
+            for(unsigned int j = 0; j<colunaTabela; j++)
+            {
+                cout<<tabela[i][j]<<" ";
+            }
+            cout<<""<<endl;
+        }
+
+
 
     for(int s=0; s<quantLinhaTabela; s++)
     {
