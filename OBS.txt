@@ -10,6 +10,20 @@ Conjunto de restrições:
 
 
 
+Função Objetivo: Maximizar ou Minimizar
+Maximizar
+
++100x +80y +120z +30w
+
+Conjunto de restrições:
+
++x +y +z +4w <= 300
++y +z +2w <= 600
++3x +2y +4z <= 500
+
+
+
+
 
 Função Objetivo: Maximizar ou Minimizar
 Maximizar
@@ -49,5 +63,31 @@ Conjunto de restrições:
 
 +x +4y <= 8
 +x +2y <= 4
+
+
+
+Multiplas soluções ótimas
+Função Objetivo: Maximizar ou Minimizar
+Maximizar
+
++3x +2y
+
+Conjunto de restrições:
+
++x <= 3
++y <= 4
++x +2y <= 9
+
+
+Soluções ilimitadas
+Função Objetivo: Maximizar ou Minimizar
+Maximizar
+
+x +y
+
+Conjunto de restrições:
+
+-2x +2y <= 6
++6y <= 36
 
 

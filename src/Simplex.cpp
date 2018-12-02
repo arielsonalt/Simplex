@@ -105,8 +105,8 @@ void Simplex::simplexSimples()
                 {
                     if(problema.getRestricao(i)->getVariavel(k)->getNome() ==  linhaTop[j])
                     {
-                        cout<<problema.getRestricao(i)->getVariavel(k)->getNome()<<endl;
-                        cout<<problema.getRestricao(i)->getVariavel(k)->getValor()<<endl;
+                        //cout<<problema.getRestricao(i)->getVariavel(k)->getNome()<<endl;
+                        //cout<<problema.getRestricao(i)->getVariavel(k)->getValor()<<endl;
 
                         tabela[i][j] = problema.getRestricao(i)->getVariavel(k)->getValor();
                         encontrou=1;
@@ -183,7 +183,7 @@ void Simplex::simplexSimples()
             colunaResult[t]=0;
 
         }
-        cout<<colunaResult[t]<<endl;
+        //cout<<colunaResult[t]<<endl;
     }
     for(int s=0; s<colunaTabela; s++)
     {
@@ -196,25 +196,36 @@ void Simplex::simplexSimples()
 
     }
 
-    for(unsigned int i = 0; i<quantLinhaTabela; i++)
-    {
-        for(unsigned int j = 0; j<colunaTabela; j++)
+    cout<<"    ";
+        for(int s=0; s<colunaTabela; s++){
+            cout<<linhaTop[s]<<"   ";
+        }
+        cout<<"B";
+        cout<<""<<endl;
+        for(unsigned int i = 0; i<quantLinhaTabela; i++)
         {
-            cout<<tabela[i][j]<<" ";
+            cout<<colunaEsq[i]<<"  ";
+            for(unsigned int j = 0; j<colunaTabela; j++)
+            {
+                cout<<tabela[i][j]<<"";cout<<"   ";
+            }
+            cout<<colunaResult[i]<<"  ";
+            cout<<""<<endl;
         }
         cout<<""<<endl;
-    }
-
+        cout<<""<<endl;
 
     //*********************************************************************************************
     //*********************************************************************************************
     //Interações
     int cont=0;
     int colunaPivo,menorElementoLinha=0;
-    double resultadoDivisao;
-
-    while(cont != colunaTabela)
+    double resultadoDivisao=0;
+    int contador=0;
+     string comando = "";
+    while(comando != "sair")
     {
+        contador++;
         cont=0;
 
         // achar coluna pivo
@@ -235,29 +246,39 @@ void Simplex::simplexSimples()
             }
 
         }
-        //cout<<colunaPivo<<"colunaPivo"<<endl;
+        //cout<<menorElementoLinha<<" colunaPivo"<<endl;
+        //cout<<linhaTop[colunaPivo]<<" Entra"<<endl;
 
         //achar linha Pivo
         int linhaPivo;
+        int chave =0;
         for(int y =0; y<quantLinhaTabela-1; y++)
         {
             if(y==0)
             {
-                resultadoDivisao = colunaResult[y]/tabela[y][colunaPivo];
+                //cout<<tabela[y][colunaPivo]<<" Numero"<<endl;
 
-                linhaPivo = y;
-                //cout<<resultadoDivisao<<"divisão"<<endl;
+                if(tabela[y][colunaPivo]>0){
+                        chave =1;
+                    resultadoDivisao = colunaResult[y]/tabela[y][colunaPivo];
+
+                    linhaPivo = y;
+                    //cout<<resultadoDivisao<<"divisão"<<endl;
+                }
+
             }
 
             if((colunaResult[y]/tabela[y][colunaPivo]) <= resultadoDivisao && (colunaResult[y]/tabela[y][colunaPivo]) >= 0)
             {
+                //cout<<resultadoDivisao<<" divisão"<<endl;
                 resultadoDivisao = colunaResult[y]/tabela[y][colunaPivo];
                 //cout<<resultadoDivisao<<"divisão"<<endl;
                 linhaPivo = y;
             }
         }
 
-        //cout<<linhaPivo<<endl;
+        //cout<<linhaPivo<<" linha"<<endl;
+        //cout<<colunaEsq[linhaPivo]<<" Sai"<<endl;
         colunaEsq[linhaPivo] = linhaTop[colunaPivo];
         double divisor = tabela[linhaPivo][colunaPivo];
         for(int j=0; j < colunaTabela; j++)
@@ -288,6 +309,28 @@ void Simplex::simplexSimples()
         }
 
         // Verificações;
+
+        int chave2=0;
+        for(int h=0; h<colunaTabela;h++){
+            if(tabela[quantLinhaTabela-1][h] < 0){
+                    cont=0;
+                for(int u=0;u<quantLinhaTabela;u++){
+                    //cout<<"#"<<tabela[u][h]<< " ";
+                    if(tabela[u][h] <= 0){
+                        cont++;
+                    }
+                }
+                if(cont == quantLinhaTabela){
+                    comando = "sair";
+                    //cout<<"OI TUDO BOM"<<endl;
+                }
+            }
+        }
+        if(cont == quantLinhaTabela){
+            comando ="sair";
+            cout<<"Infinitas Soluçôes"<<endl;
+        }else{
+        cont=0;
         for(int d=0; d < colunaTabela ; d++)
         {
             if(tabela[quantLinhaTabela-1][d] >= 0)
@@ -296,26 +339,33 @@ void Simplex::simplexSimples()
             }
 
         }
+        if(cont == colunaTabela){
+            comando = "sair";
+        }
+        cout<<""<<endl;
+        cout<<"Interação "<<contador<<endl;
+        cout<<""<<endl;
+        cout<<"     ";
+        for(int s=0; s<colunaTabela; s++){
+            cout<<linhaTop[s]<<"   ";
+        }
+        cout<<"B";
+        cout<<""<<endl;
         for(unsigned int i = 0; i<quantLinhaTabela; i++)
         {
+            cout<<colunaEsq[i]<<"  ";
             for(unsigned int j = 0; j<colunaTabela; j++)
             {
-                cout<<tabela[i][j]<<" ";
+                cout<<tabela[i][j]<<"";cout<<"   ";
             }
+            cout<<colunaResult[i]<<"  ";
             cout<<""<<endl;
+        }
         }
     }
-    for(unsigned int i = 0; i<quantLinhaTabela; i++)
-        {
-            for(unsigned int j = 0; j<colunaTabela; j++)
-            {
-                cout<<tabela[i][j]<<" ";
-            }
-            cout<<""<<endl;
-        }
 
-
-
+    cout<<""<<endl;
+    cout<<""<<endl;
     for(int s=0; s<quantLinhaTabela; s++)
     {
         cout<<colunaEsq[s]<<" = "<<colunaResult[s]<<endl;

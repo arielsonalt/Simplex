@@ -1,11 +1,10 @@
 Função Objetivo: Maximizar ou Minimizar
 Maximizar
 
-+2x +3y
++100x +80y +120z +30w
 
 Conjunto de restrições:
 
-+x +3y <= 10
-+2x +y <= 8
-+3x +4y <= 12
-+3x +y <= 9
++x +y +z +4w <= 300
++y +z +2w <= 600
++3x +2y +4z <= 500

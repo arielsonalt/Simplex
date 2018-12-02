@@ -108,14 +108,14 @@ void Instancia::ler()
                     if(funcao[i+1] == ' ' || funcao[i+1] == '\0'){
                         //addVariavelEValor(variavel,stringValorVariavel,funcaoObjetivo);
 
-                        cout<<"-"<<endl;
+                        //cout<<"-"<<endl;
                         Variavel variavel;
                         variavel.setNome(variavelNome);
                         double valorVariavel = atof(stringValorVariavel.c_str());
                         variavel.setValor(valorVariavel);
                         restricao.setVariaveis(variavel);
-                        cout<<variavel.getNome()<<endl;
-                        cout<<variavel.getValor()<<endl;
+                        //cout<<variavel.getNome()<<endl;
+                       // cout<<variavel.getValor()<<endl;
                         stringValorVariavel = "";
                         variavelNome ="";
                     }
@@ -128,7 +128,7 @@ void Instancia::ler()
                             i++;
                             }
                             restricao.setNumeroLimitante(atof(auxiliar.c_str()));
-                            cout<<"limite"<<restricao.getNumeroLimitante()<<endl;
+                            //cout<<"limite"<<restricao.getNumeroLimitante()<<endl;
                             auxiliar = "";
                         }else{
                         for(int j=i; j<funcao.size();j++){
@@ -136,7 +136,7 @@ void Instancia::ler()
                             i++;
                         }
                         restricao.setNumeroLimitante(atof(auxiliar.c_str()));
-                        cout<<"limite"<<restricao.getNumeroLimitante()<<endl;
+                        //cout<<"limite"<<restricao.getNumeroLimitante()<<endl;
                         auxiliar = "";
                     }
                     }else{
@@ -154,7 +154,7 @@ void Instancia::ler()
                         simbolo.setNome(auxiliar);
                         restricao.setSimbolo(simbolo);
 
-                        cout<<" "<<restricao.getSimbolo().getNome();
+                        //cout<<" "<<restricao.getSimbolo().getNome();
                         auxiliar ="";
                     }
                 }
